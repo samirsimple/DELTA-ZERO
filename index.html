@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELTA ZERO — Тактический Шутер в Minecraft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131b2e;
+            --accent: #00ff66;
+            --accent-glow: rgba(0, 255, 102, 0.2);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, rgba(0,255,102,0.05) 0%, transparent 70%);
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .server-box {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 12px;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+
+        .server-box:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .server-ip {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .copy-btn:hover {
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-download {
+            background: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--accent);
+            padding: 12px 30px;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-download:hover {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 80px 8%;
+            background: #070a12;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 16px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 102, 0.3);
+        }
+
+        .feature-card h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">DELTA <span>ZERO</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">Главная</a></li>
+            <li><a href="#features">Механики</a></li>
+            <li><a href="https://github.com/" target="_blank">Сборка</a></li>
+        </ul>
+    </header>
+
+    <section class="hero">
+        <h1>Тактический шутер <span>нового поколения</span></h1>
+        <p>Оружейный арсенал TaCZ, продвинутый паркур ParCool, реалистичная физика тел и динамичные матчи.</p>
+        
+        <div class="server-box" onclick="copyIP()">
+            <span style="color: var(--accent);">●</span>
+            <span class="server-ip" id="ipText">play.deltazero.net</span>
+            <button class="copy-btn">Копировать IP</button>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="#" class="btn-download">Скачать сборку</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-card">
+            <h3>Оружие TaCZ</h3>
+            <p>Детализированные модели пушек, кастомизация модулей, чистая баллистика и безупречные анимации без мыла.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Паркур и Движения</h3>
+            <p>Подкаты на ходу, прыжки от стен, рывки и динамичные перестрелки с использованием мода ParCool.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Реалистичная Физика</h3>
+            <p>Физика тел (Ragdoll) при падениях и устранениях противников, звуковой чат и оптимизированные шейдеры.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DELTA ZERO. Все права защищены. Minecraft Тактический Проект.</p>
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ip = "play.deltazero.net";
+            navigator.clipboard.writeText(ip).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = "Скопировано!";
+                setTimeout(() => {
+                    btn.textContent = "Копировать IP";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
